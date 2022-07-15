@@ -11,9 +11,8 @@ class MoviesView(Resource):
     schemas = MovieSchema(many=True)
 
     def get(self):
-        movies = self.schemas.dump(movie_service.get_m(request.args))
+        movies = self.schemas.dump(movie_service.get_all(request.args))
         return movies, 200
-
 
     def post(self):
         try:
@@ -31,7 +30,7 @@ class MovieView(Resource):
 
     def get(self, mid):
         try:
-            movie = self.schema.dump(movie_service.get_m(mid))
+            movie = self.schema.dump(movie_service.get_one(mid))
             return movie, 200
         except Exception as e:
             return e, 404

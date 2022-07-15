@@ -6,8 +6,11 @@ class MovieService:
     def __init__(self, dao: MovieDAO):
         self.dao = dao
 
-    def get_m(self, params, mid=None):
-        return self.dao.get(mid, params)
+    def get_all(self, params):
+        return self.dao.get(params)
+
+    def get_one(self, mid):
+        return self.dao.get_one(mid)
 
     def create_m(self, data):
         return self.dao.create(data)
