@@ -51,6 +51,6 @@ class MovieView(Resource):
 
     def delete(self, mid):
         try:
-            movie_service.delete_m(mid)
+            movie_service.delete(mid)
         except Exception as e:
             return e, 404

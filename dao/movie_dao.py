@@ -30,6 +30,6 @@ class MovieDAO:
         self.session.commit()
 
     def delete(self, mid):
-        movie = self.get(mid)
+        movie = self.get_one(mid)
         self.session.delete(movie)
         self.session.commit()

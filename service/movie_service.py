@@ -16,7 +16,7 @@ class MovieService:
         return self.dao.create(data)
 
     def update_full(self, mid, data):
-        movie = self.get_m(mid)
+        movie = self.get_one(mid)
         movie.title = data["title"]
         movie.description = data["description"]
         movie.year = data["year"]
@@ -28,7 +28,7 @@ class MovieService:
         return movie
 
     def update_parts(self, mid, data):
-        movie = self.get_m(mid)
+        movie = self.get_one(mid)
         if "title" in data:
             movie.title = data["title"]
         if "description" in data:
@@ -46,5 +46,5 @@ class MovieService:
         self.dao.update(movie)
         return movie
 
-    def delete_m(self, mid):
+    def delete(self, mid):
         self.dao.delete(mid)
